@@ -1,0 +1,109 @@
+/* Reset sencillo */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #111827;
+  --shadow: 0 6px 18px rgba(17,24,39,0.06);
+  --radius: 12px;
+}
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--bg), #eef2f7);
+  color: var(--accent);
+  min-height: 100vh;
+  padding: 40px 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Contenedor principal */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+/* Título */
+.page-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  color: #0f172a;
+}
+/* Grid de tarjetas: 1 columna en móvil, 3 en pantallas grandes */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+/* Tarjeta */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  cursor: default;
+  outline: none;
+}
+.card:focus,
+.card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 14px 30px rgba(17,24,39,0.12);
+}
+/* Imagen */
+.card-image {
+  flex: 0 0 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01));
+}
+.card-image img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+/* Cuerpo de la tarjeta */
+.card-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.pokemon-name {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+  color: #0b1220;
+}
+.pokemon-type,
+.pokemon-evo {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+/* Badges de tipo */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: white;
+  letter-spacing: 0.2px;
+}
+/* Tipos (puedes añadir más) */
+.badge.electric { background: #F6C94D; color: #331C00; }
+.badge.fire     { background: #FF7A4A; color: #2b0b00; }
+.badge.water    { background: #3AA0FF; color: #052137; }
+/* Responsive: 2 columnas en pantallas medianas, 3 en grandes */
+@media (min-width: 640px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 980px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+}

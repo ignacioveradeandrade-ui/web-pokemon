@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tarjetas Pokémon</title>
+  <link rel="stylesheet" href="../static/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1 class="page-title">Mis Pokémon</h1>
+
+    {% block content %}
+    <section class="cards" aria-label="Lista de Pokémon">
+      <!-- Tarjeta 1 -->
+      <article class="card" tabindex="0" aria-labelledby="name-pika">
+        <div class="card-image">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pikachu" />
+        </div>
+        <div class="card-body">
+          <h2 id="name-pika" class="pokemon-name">{{pokemons[1][0]}}</h2>
+          <p class="pokemon-type">Tipo: <span class="badge electric">{{pokemons[1][1]}}</span></p>
+          <p class="pokemon-evo">Evolución: <strong>{{pokemons[1][2]}}</strong></p>
+        </div>
+      </article>
+      <!-- Tarjeta 2 -->
+      <article class="card" tabindex="0" aria-labelledby="name-char">
+        <div class="card-image">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Charmander" />
+        </div>
+        <div class="card-body">
+          <h2 id="name-char" class="pokemon-name">{{pokemons[2][0]}}</h2>
+          <p class="pokemon-type">Tipo: <span class="badge fire">{{pokemons[2][1]}}</span></p>
+          <p class="pokemon-evo">Evolución: <strong>{{pokemons[2][2]}}</strong></p>
+        </div>
+      </article>
+      <!-- Tarjeta 3 -->
+      <article class="card" tabindex="0" aria-labelledby="name-squirtle">
+        <div class="card-image">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" alt="Squirtle" />
+        </div>
+        <div class="card-body">
+          <h2 id="name-squirtle" class="pokemon-name">{{pokemons[3][0]}}</h2>
+          <p class="pokemon-type">Tipo: <span class="badge water">{{pokemons[3][1]}}</span></p>
+          <p class="pokemon-evo">Evolución: <strong>{{pokemons[3][2]}} </strong></p>
+        </div>
+      </article>
+    </section>
+    {% endblock %}
+  </main>
+</body>
+</html>
