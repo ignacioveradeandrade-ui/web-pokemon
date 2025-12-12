@@ -12,6 +12,10 @@ datos = {
 def home():
     return render_template("index.html" , pokemons = datos)
 
+@app.route("/pokemons-legendarios")
+def legendarios():
+    return render_template("legendarios.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
-    
