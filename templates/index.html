@@ -2,51 +2,200 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tarjetas Pokémon</title>
-  <link rel="stylesheet" href="../static/styles.css" />
+
+  <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f6f8fb;
+      color: #111827;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background-color: #111827;
+      padding: 14px 24px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .nav-links a:hover {
+      color: #facc15;
+    }
+
+    /* ===== CONTENEDOR ===== */
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* ===== TARJETAS ===== */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(17,24,39,0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-image {
+      background-color: #f1f5f9;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card-image img {
+      width: 120px;
+      height: 120px;
+    }
+
+    .card-body {
+      padding: 16px;
+    }
+
+    .pokemon-name {
+      font-size: 20px;
+      margin-bottom: 8px;
+      text-transform: capitalize;
+    }
+
+    .pokemon-type,
+    .pokemon-evo {
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    /* ===== BADGES ===== */
+    .badge {
+      padding: 4px 10px;
+      border-radius: 20px;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .electric {
+      background-color: #facc15;
+      color: #000;
+    }
+
+    .fire {
+      background-color: #ef4444;
+    }
+
+    .water {
+      background-color: #3b82f6;
+    }
+  </style>
 </head>
+
 <body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/pokemons-legendarios">Pokémon Legendarios</a></li>
+      <li><a href="/juego">Juego</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTENIDO -->
   <main class="container">
     <h1 class="page-title">Mis Pokémon</h1>
 
-    {% block content %}
     <section class="cards" aria-label="Lista de Pokémon">
-      <!-- Tarjeta 1 -->
-      <article class="card" tabindex="0" aria-labelledby="name-pika">
+
+      <!-- Pikachu -->
+      <article class="card">
         <div class="card-image">
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pikachu" />
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pikachu">
         </div>
         <div class="card-body">
-          <h2 id="name-pika" class="pokemon-name">{{pokemons[1][0]}}</h2>
-          <p class="pokemon-type">Tipo: <span class="badge electric">{{pokemons[1][1]}}</span></p>
-          <p class="pokemon-evo">Evolución: <strong>{{pokemons[1][2]}}</strong></p>
+          <h2 class="pokemon-name">{{ pokemons[1][0] }}</h2>
+          <p class="pokemon-type">
+            Tipo:
+            <span class="badge electric">{{ pokemons[1][1] }}</span>
+          </p>
+          <p class="pokemon-evo">
+            Evolución: <strong>{{ pokemons[1][2] }}</strong>
+          </p>
         </div>
       </article>
-      <!-- Tarjeta 2 -->
-      <article class="card" tabindex="0" aria-labelledby="name-char">
+
+      <!-- Charmander -->
+      <article class="card">
         <div class="card-image">
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Charmander" />
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Charmander">
         </div>
         <div class="card-body">
-          <h2 id="name-char" class="pokemon-name">{{pokemons[2][0]}}</h2>
-          <p class="pokemon-type">Tipo: <span class="badge fire">{{pokemons[2][1]}}</span></p>
-          <p class="pokemon-evo">Evolución: <strong>{{pokemons[2][2]}}</strong></p>
+          <h2 class="pokemon-name">{{ pokemons[2][0] }}</h2>
+          <p class="pokemon-type">
+            Tipo:
+            <span class="badge fire">{{ pokemons[2][1] }}</span>
+          </p>
+          <p class="pokemon-evo">
+            Evolución: <strong>{{ pokemons[2][2] }}</strong>
+          </p>
         </div>
       </article>
-      <!-- Tarjeta 3 -->
-      <article class="card" tabindex="0" aria-labelledby="name-squirtle">
+
+      <!-- Squirtle -->
+      <article class="card">
         <div class="card-image">
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" alt="Squirtle" />
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" alt="Squirtle">
         </div>
         <div class="card-body">
-          <h2 id="name-squirtle" class="pokemon-name">{{pokemons[3][0]}}</h2>
-          <p class="pokemon-type">Tipo: <span class="badge water">{{pokemons[3][1]}}</span></p>
-          <p class="pokemon-evo">Evolución: <strong>{{pokemons[3][2]}} </strong></p>
+          <h2 class="pokemon-name">{{ pokemons[3][0] }}</h2>
+          <p class="pokemon-type">
+            Tipo:
+            <span class="badge water">{{ pokemons[3][1] }}</span>
+          </p>
+          <p class="pokemon-evo">
+            Evolución: <strong>{{ pokemons[3][2] }}</strong>
+          </p>
         </div>
       </article>
+
     </section>
-    {% endblock %}
   </main>
+
 </body>
 </html>
+
